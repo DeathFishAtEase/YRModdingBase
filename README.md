@@ -1,20 +1,29 @@
-尤里的复仇 Mod 开发基底
----
+# 尤里的复仇 Mod 开发基底
+
 ## 简述
 
 这是一个整合了 Ares 与 Phobos 引擎的《尤里的复仇》Mod 开发基底
 
 ## 使用
 
-1. 在顶端绿色按钮处点击[下载 zip 压缩包](https://github.com/DeathFishAtEase/YRModdingBase/archive/refs/heads/master.zip)
+1. 在顶端绿色 Code 按钮处点击 [Download ZIP](https://github.com/DeathFishAtEase/YRModdingBase/archive/refs/heads/master.zip)
 2. 解压后覆盖到你的原版《尤里的复仇》中
 3. 使用 `YRLauncher.exe` 启动
 
 > [!Tip]
 > [怎么解压zip文件](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=%E6%80%8E%E4%B9%88%E8%A7%A3%E5%8E%8Bzip%E6%96%87%E4%BB%B6)
 
-## 2025 版教程光速部署包项目
----
+## 许可证
+
+本项目采用自定义的非商业使用许可证。
+- ✅ 允许修改和衍生作品
+- ✅ 衍生作品可以选择闭源
+- ❌ 禁止商业使用
+
+详见 [LICENSE](LICENSE) 文件。
+
+# 【前期项目】2025 版教程光速部署包
+
 *本光速部署包为 RA2DIY 社区 2025 版基础 **教学材料** 的一部分，请确保你下载了完整的教程包。*
 
 ***不要使用倒狗拆分并二次分发后的版本！***
