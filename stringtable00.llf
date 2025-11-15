@@ -1,6 +1,70 @@
 # stringtable00
-# csf count: 1
-# build time: 2025-08-24 18:25:25
+# csf count: 57
+# build time: 2025-11-15 16:27:59
 
-txt_release_note: 2025 教程示范文本
+txt_scrncap_desc: 保存当前画面的截屏。(文件会以 "SCRN.日期-时间.BMP" 的名称保存到游戏目录)
+gui:urbanareas: 创建城区地图
+name:desert: 沙漠
+stt:rmgurbanareas: 选择是否在地图中生成城市区域。
+gui:playmission: 开始游戏
+gui:selectcampaign: 选择战役
+stt:multiengineer: 工程师只能占领已经残损的建筑。
+stt:playercolorbrown: 选择棕色。
+stt:playercolorcharcoal: 选择深灰色。
+stt:playercolorlightblue: 选择淡蓝色。
+stt:playercolorlime: 选择柠绿色。
+stt:playercolorteal: 选择青蓝色。
+stt:playercolorlilac: 选择淡紫色。
+txt_command_disabled: %s 指令不可用。
+txt_release: 发射
+txt_fake: 假
+msg:cannotfire: 目前无法发射。中止指令。
+txt_development: 开发
+txt_dump_ai_base_plan: 输出 AI 基地建设计划
+txt_dump_ai_base_plan_desc: 将 AI 基地建设计划输出至 debug.log 中。
+txt_ai_control: AI 操作
+txt_ai_control_desc: 让 AI 接管游戏操作。
+txt_dump_memory: 获取内存转储
+txt_dump_memory_desc: 获取当前进程的内存转储。
+txt_dump_types: 输出类型列表
+txt_dump_types_desc: 将当前各类型的列表输出至 debug.log 中。
+txt_fps_counter: FPS 计数器
+txt_fps_counter_desc: 开启/关闭显示当前帧速率与每秒平均帧速率的 FPS 计数器。
+txt_map_snapshot: 地图快照
+txt_map_snapshot_desc: 保存当前游玩的地图至游戏目录。
+txt_toggle_power: 切换电源模式
+txt_toggle_power_desc: 开启/关闭“切换电源模式”。
+txt_release_note: YRStandard-INI 单条目 stringtable00.csf 提示文本
+txt_quicksave: 快速存档
+txt_quicksave_desc: >-
+  快速保存一个 .sav 文件
+  （仅限单人游戏）
+txt_quicksave_suffix: 快速存档完毕
+msg:notavailableinmultiplayer: 快速存档在多人游戏中不可用
+txt_next_idle_harvester: 下一个闲置矿车
+txt_next_idle_harvester_desc: 选中下一个处于闲置状态（不在采矿）的矿车
+txt_dump_object_info: 输出单位信息
+txt_dump_object_info_desc: >-
+  可以将单位的行为、载员等数据输出至 debug.log 中
+  显示在屏幕的左上角
+  最多可同时显示两个
+  即时生效，无持续性
+txt_display_damage: 显示杀伤数值
+txt_display_damage_desc: 在单位和建筑上显示他们所受到杀伤的准确数值
+txt_designator_range: 开关指示范围
+txt_designator_range_desc: 在超级武器处于瞄准状态时显示/隐藏指示范围
+txt_save_variables: 保存变量至文件
+txt_save_variables_desc: >-
+  获取局部变量和全局变量
+  并保存到一个INI文件中
+txt_frame_by_frame: 开关逐帧运行
+txt_frame_by_frame_desc: 进入/退出逐帧步进模式
+txt_step_xx_forward: 前进 %d 帧
+txt_step_xx_forward_desc: 仅用于逐帧运行模式：前进 %d 帧
+txt_digital_display: 开关数字化显示
+txt_digital_display_desc: 显示/隐藏单位数据的数字化显示
+txt_toggle_sw_sidebar: 开关超武侧边栏
+txt_toggle_sw_sidebar_desc: 开启／关闭超武侧边栏
+txt_fire_tactical_sw_xx: 发射第 %d 个超武
+txt_fire_tactical_sw_xx_desc: 发射位于超武侧边栏第 %d 号位的超级武器
 
