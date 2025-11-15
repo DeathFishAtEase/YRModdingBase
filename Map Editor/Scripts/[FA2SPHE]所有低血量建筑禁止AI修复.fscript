@@ -1,0 +1,62 @@
+// FinalAlert2:YR Script file
+// Name: Make all Low Strength Buildings Irreparable
+// Written By: Handama
+// Last Change: January 9, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+
+AllowDelete("需要此权限以编辑建筑");
+Is("%DeleteAllowed%","=","0","%NoDelete%");
+Print("此脚本需要删除对象！","%NoDelete%");
+Cancel("%NoDelete%");
+AllowAdd("需要此权限以编辑建筑");
+Is("%AddAllowed%","=","0","%NoAdd%");
+Print("此脚本需要添加对象！","%NoAdd%");
+Cancel("%NoAdd%");
+
+Ask("%specified%","想要将修改限制于某一所属方吗？","限制所属方");
+
+SetVariable("%House%","");
+UInputGetHouse("%House%","所属方：","%specified%");
+
+SetAutoUpdate("FALSE"); // no screen flickering...
+
+Is("%StructureCount%","=","0","%Abort%");
+Cancel("%Abort%");
+
+SetVariable("%TCounter%","%StructureCount%");
+GetIniKey("%RepairStep%","General","RepairStep", "1" ,"2");
+
+// LOOP BEGIN
+:Loop:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+GetStructure("%data%","%pos%");
+
+SetVariable("%Differ%","0");
+GetParam("%param%", "%data%", "0", "%specified%");
+Is("%param%","!=","%House%","%Differ%","%specified%");
+
+Substract("%TCounter%","1", "%Differ%");
+And("%cancelloop%","%Differ%", "%TCounter%");
+JumpTo("Loop", "%cancelloop%");
+
+// if we are here, and Differ is set to TRUE, TCounter must be 0, so cancel script.
+Cancel("%Differ%");
+
+SetVariable("%SkipThis%","0");
+GetParam("%name%", "%data%", "1");
+GetIniKey("%strength%","%name%","Strength", "1", "2");
+Is("%strength%",">=","%RepairStep%","%SkipThis%");
+
+JumpTo("Skip", "%SkipThis%");
+DeleteStructure("%pos%");
+SetParam("%data%","15","0");
+AddStructure("%data%");
+:Skip:
+
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("Loop","%TCounter%");
+
+

@@ -1,0 +1,48 @@
+# stringtable01
+# csf count: 27
+# build time: 2025-08-24 18:25:16
+
+txt_quicksave: 快速保存存档
+txt_quicksave_desc: >-
+  快速保存一个 .sav 文件
+  （仅限单人游戏）
+txt_quicksave_suffix: [快速保存]
+msg:notavailableinmultiplayer: 快速保存在多人游戏中不可用
+txt_saving_game: 保存游戏
+txt_game_was_saved: 保存成功，玩的开心
+txt_error_saving_game: 保存失败，出现错误
+txt_next_idle_harvester: 下一个闲置矿车
+txt_next_idle_harvester_desc: >-
+  按下按键，找到你下一个闲置状态的矿车
+  实乃监（压）工（榨）利器
+txt_dump_object_info: 输出单位信息
+txt_dump_object_info_desc: >-
+  可以将单位的行为、载员等数据输出
+  显示在屏幕的左上角
+  最多可同时显示两个
+  即时生效，无持续性
+txt_display_damage: 显示杀伤数值
+txt_display_damage_desc: >-
+  在单位和建筑上显示
+  他们所受到杀伤的准确数值
+txt_designator_range: 开关指示范围
+txt_designator_range_desc: >-
+  在超级武器处于瞄准状态时
+  开启／关闭指示范围的显示效果
+txt_save_variables: 保存变量至文件
+txt_save_variables_desc: >-
+  获取局部变量和全局变量
+  并保存到一个INI文件中
+txt_frame_by_frame: 开关逐帧运行
+txt_frame_by_frame_desc: 进入／退出逐帧运行模式
+txt_step_xx_forward: 前进 %d 帧
+txt_step_xx_forward_desc: >-
+  仅用于逐帧运行模式：
+  向前步进 %d 帧
+txt_digital_display: 开关数字化显示
+txt_digital_display_desc: 开启／关闭数字化显示
+txt_toggle_sw_sidebar: 开关超武侧边栏
+txt_toggle_sw_sidebar_desc: 开启／关闭超武侧边栏
+txt_fire_tactical_sw_xx: 发射超武 %d
+txt_fire_tactical_sw_xx_desc: 发射位于超武侧边栏第 %d 号位的超级武器
+

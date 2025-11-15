@@ -1,0 +1,20 @@
+// FinalAlert2:YR Script file
+// Written By: Matthias Wagner, Yuri's Helper
+// Last Change: Feb.7th 2011
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+SetSafeMode("FALSE","需要此权限以编辑灯光");
+AskContinue("这个脚本将改变您当前地图的光照为YR苏联第7关的效果，是否继续？");
+
+SetIniKey("Lighting","Level","0.003000");
+SetIniKey("Lighting","IonLevel","0.030000");
+
+SetIniKey("Lighting","Ambient","0.550000");
+SetIniKey("Lighting","Red","0.400000");
+SetIniKey("Lighting","Green","0.400000");
+SetIniKey("Lighting","Blue","0.700000");
+
+SetIniKey("Lighting","IonAmbient","0.650000");
+SetIniKey("Lighting","IonRed","0.695000");
+SetIniKey("Lighting","IonGreen","0.445000");
+SetIniKey("Lighting","IonBlue","0.775000");

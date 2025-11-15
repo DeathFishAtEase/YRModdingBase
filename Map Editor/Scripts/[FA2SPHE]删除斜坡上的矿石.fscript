@@ -1,0 +1,60 @@
+// FinalAlert2:YR Script file
+// Name: Replace Whole Map with Water
+// Written By: Handama
+// Last Change: March 8, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+Message("本脚本会破坏非自然过渡的矿石。\nFA2会提示超出循环限制，请点击是。对于较大的地图，本脚本可能会花费数分钟时间，并且导致程序无响应，请不要关闭程序。", "警告");
+
+SetVariable("%X%","%IsoSize%");
+Add("%X%","1");
+:LoopX:
+Substract("%X%","1");
+SetVariable("%Y%","%IsoSize%");
+Add("%Y%","1");
+:LoopY:
+Substract("%Y%","1");
+
+IsCoordInMap("%invalidCell%", "%Y%", "%X%");
+Not("%invalidCell%");
+JumpTo("LoopEnd", "%invalidCell%");
+
+GetCellInfo("%OVERLAY%", "%Y%", "%X%", "17");
+
+Is("%OVERLAY%", "=", "255", "%EMPTY%");
+JumpTo("LoopEnd", "%EMPTY%");
+
+GetCellInfo("%RampType%", "%Y%", "%X%", "5");
+Is("%RampType%", "=", "0", "%Flatten%");
+JumpTo("LoopEnd", "%Flatten%");
+
+Is("%OVERLAY%", ">=", "102", "%IS_ORE_START%");
+Is("%OVERLAY%", "<=", "121", "%IS_ORE_END%");
+And("%IS_ORE%", "%IS_ORE_START%" , "%IS_ORE_END%");
+SetOverlay("%Y%", "%X%", "255", "%IS_ORE%");
+JumpTo("LoopEnd", "%IS_ORE%");
+
+Is("%OVERLAY%", ">=", "27", "%IS_ORE_START%");
+Is("%OVERLAY%", "<=", "38", "%IS_ORE_END%");
+And("%IS_ORE%", "%IS_ORE_START%" , "%IS_ORE_END%");
+SetOverlay("%Y%", "%X%", "255", "%IS_ORE%");
+JumpTo("LoopEnd", "%IS_ORE%");
+
+Is("%OVERLAY%", ">=", "127", "%IS_ORE_START%");
+Is("%OVERLAY%", "<=", "146", "%IS_ORE_END%");
+And("%IS_ORE%", "%IS_ORE_START%" , "%IS_ORE_END%");
+SetOverlay("%Y%", "%X%", "255", "%IS_ORE%");
+JumpTo("LoopEnd", "%IS_ORE%");
+
+Is("%OVERLAY%", ">=", "147", "%IS_ORE_START%");
+Is("%OVERLAY%", "<=", "166", "%IS_ORE_END%");
+And("%IS_ORE%", "%IS_ORE_START%" , "%IS_ORE_END%");
+SetOverlay("%Y%", "%X%", "255", "%IS_ORE%");
+JumpTo("LoopEnd", "%IS_ORE%");
+
+:LoopEnd:
+JumpTo("LoopY", "%Y%");
+JumpTo("LoopX", "%X%");
+
+

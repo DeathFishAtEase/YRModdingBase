@@ -1,0 +1,25 @@
+// FinalAlert2:YR Script file
+// Name: Replace Whole Map with Water
+// Written By: Handama
+// Last Change: January 18, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+Message("FA2会提示超出循环限制，请点击是。对于较大的地图，本脚本可能会花费数分钟时间，并且导致程序无响应，请不要关闭程序。运行结束后，可以使用[地图工具->重绘水面]让水面更自然。", "警告");
+
+SetVariable("%X%","%IsoSize%");
+Add("%X%","1");
+:LoopY:
+Substract("%X%","1");
+SetVariable("%Y%","%IsoSize%");
+Add("%Y%","1");
+:LoopX:
+Substract("%Y%","1");
+IsCoordInMap("%validCell%", "%Y%", "%X%");
+RandomBetween("%random%", "322", "327", "%validCell%");
+PlaceTileAt("%Y%", "%X%", "%random%", "0", "-1", "%validCell%");
+SetHeightAt("%Y%", "%X%", "0", "1", "%validCell%");
+JumpTo("LoopX", "%Y%");
+JumpTo("LoopY", "%X%");
+
+

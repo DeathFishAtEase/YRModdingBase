@@ -1,0 +1,60 @@
+// FinalAlert2:YR Script file
+// Name: Change Unit Facing
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+AllowDelete("需要此权限以编辑飞行器");
+Is("%DeleteAllowed%","=","0","%NoDelete%");
+Print("执行此脚本必须允许删除权限！","%NoDelete%");
+Cancel("%NoDelete%");
+AllowAdd("需要此权限以编辑飞行器");
+Is("%AddAllowed%","=","0","%NoAdd%");
+Print("执行此脚本必须允许新增权限！","%NoAdd%");
+Cancel("%NoAdd%");
+
+Ask("%specified%","是否将修改限制到特定所属方？","所属方限制");
+
+SetVariable("%House%","");
+UInputGetHouse("%House%","House:","%specified%");
+
+SetAutoUpdate("FALSE"); // no screen flickering...
+
+Is("%AircraftCount%","=","0","%Abort%");
+Cancel("%Abort%");
+
+SetVariable("%TCounter%","%AircraftCount%");
+
+
+// LOOP BEGIN
+:Loop:
+SetVariable("%pos%","%TCounter%");
+Substract("%pos%","1");
+
+GetAircraft("%data%","%pos%");
+
+SetVariable("%Differ%","0");
+GetParam("%param%", "%data%", "0", "%specified%");
+Is("%param%","!=","%House%","%Differ%","%specified%");
+
+Substract("%TCounter%","1", "%Differ%");
+And("%cancelloop%","%Differ%", "%TCounter%");
+JumpTo("Loop", "%cancelloop%");
+
+// if we are here, and Differ is set to TRUE, TCounter must be 0, so cancel script.
+Cancel("%Differ%");
+
+DeleteAircraft("%pos%");
+GetRandom("%Facing%");
+
+// convert random (0-32767) to 8 directions
+Divide("%Facing%","4096");
+
+// convert 8 directions to degrees
+Multi("%Facing%","32");
+
+SetParam("%data%","5","%Facing%");
+
+AddAircraft("%data%");
+Substract("%TCounter%", "1", "%TCounter%"); // only substract if >=0, else infinite loop!
+JumpTo("Loop","%TCounter%");

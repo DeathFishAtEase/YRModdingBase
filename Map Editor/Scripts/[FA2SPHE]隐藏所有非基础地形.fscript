@@ -1,0 +1,45 @@
+// FinalAlert2:YR Script file
+// Name: Hide all tiles excpet basic tiles
+// Written By: Handama
+// Last Change: February 1, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+
+GetIniKey("%Clear%", "General", "ClearTile" , "1", "9");
+GetIniKey("%Rough%", "General", "RoughTile" , "1", "9");
+GetIniKey("%Sand%", "General", "SandTile" , "1", "9");
+GetIniKey("%Green%", "General", "GreenTile" , "1", "9");
+GetIniKey("%Pave%", "General", "PaveTile" , "1", "9");
+GetIniKey("%RoughLat%", "General", "ClearToRoughLat" , "1", "9");
+GetIniKey("%SandLat%", "General", "ClearToSandLat" , "1", "9");
+GetIniKey("%GreenLat%", "General", "ClearToGreenLat" , "1", "9");
+GetIniKey("%PaveLat%", "General", "ClearToPaveLat" , "1", "9");
+SetVariable("%LoopCount%",  "290");
+
+:Loop:
+Substract("%LoopCount%","1");
+
+Is("%LoopCount%", "=", "%Clear%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%Rough%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%Sand%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%Green%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%Pave%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%RoughLat%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%SandLat%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%GreenLat%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+Is("%LoopCount%", "=", "%PaveLat%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+
+HideTileSet("%LoopCount%", "0");
+
+:LoopEnd:
+JumpTo("Loop", "%LoopCount%");

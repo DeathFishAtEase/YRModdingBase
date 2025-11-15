@@ -1,0 +1,50 @@
+// FinalAlert2:YR Script file
+// Name: FlyingZ Waypoint Grid Script v1.0
+// Written By: James Zais aka FlyingZ
+
+RequiresMP();
+SetSafeMode("FALSE","需要此权限以移动路径点");
+
+UInputGetInteger("%Dist%","路径点的间距                            {4 近 - 10 远}   建议值为5","4","10");
+Message("在特别大的地图上，可能会提示循环超过300,   请点击是", "FlyingZ");
+
+SetVariable("%Z%", "%Width%");
+Mod("%Z%","%Dist%");
+SetVariable("%AS%", "%Dist%");
+Add("%AS%", "%Z%");
+
+SetVariable("%Num%", "10");
+SetVariable("%Xtop%", "%AS%");
+SetVariable("%X%", "%AS%");
+SetVariable("%Ytop%", "%Width%");
+SetVariable("%Y%", "%Width%");
+SetVariable("%V%", "%IsoSize%");
+Substract("%V%", "%Dist%");
+
+// Loop
+:BeginLoop:
+
+SetWaypoint("%Num%", "%X%", "%Y%");
+
+Add("%X%", "%Dist%");
+Add("%Y%", "%Dist%");
+Add("%Num%", "1");
+
+Is("%Y%",">","%V%","%LoopDone%");
+JumpTo("EndLoop", "%LoopDone%");
+JumpTo("BeginLoop");
+:EndLoop:
+
+Add("%Xtop%", "%Dist%");
+Substract("%Ytop%", "%Dist%");
+Substract("%V%", "%Dist%");
+
+SetVariable("%X%", "%Xtop%");
+SetVariable("%Y%", "%Ytop%");
+
+Is("%Ytop%","<","%Dist%","%AllDone%");
+JumpTo("EndAll", "%AllDone%");
+JumpTo("BeginLoop");
+:EndAll:
+
+Message("脚本执行成功", "FlyingZ");

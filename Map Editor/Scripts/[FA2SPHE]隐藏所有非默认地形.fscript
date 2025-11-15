@@ -1,0 +1,21 @@
+// FinalAlert2:YR Script file
+// Name: Hide all tiles excpet clear
+// Written By: Handama
+// Last Change: February 1, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+
+GetIniKey("%Clear%", "General", "ClearTile" , "1", "9");
+SetVariable("%LoopCount%",  "300");
+
+:Loop:
+Substract("%LoopCount%","1");
+
+Is("%LoopCount%", "=", "%Clear%", "%Continue%");
+JumpTo("LoopEnd", "%Continue%");
+
+HideTileSet("%LoopCount%", "0");
+
+:LoopEnd:
+JumpTo("Loop", "%LoopCount%");

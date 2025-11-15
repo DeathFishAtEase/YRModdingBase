@@ -1,0 +1,58 @@
+// FinalAlert2:YR Script file
+// Name: Replace Flat land tile with Clear
+// Written By: Handama
+// Last Change: January 19, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+Message("FA2可能会提示超出循环限制，请点击是。如果范围较大，本脚本可能会花费数分钟时间，并且导致程序无响应，请不要关闭程序。", "警告");
+
+UInputGetString("%Text%", "请输入靠上单元格的坐标，格式：X,Y"); 
+GetParam("%TopX%", "%Text%", "0");
+GetParam("%TopY%", "%Text%", "1");
+UInputGetString("%Text%", "请输入靠下单元格的坐标（X、Y都要大于前一个），格式：X,Y"); 
+GetParam("%BottomX%", "%Text%", "0");
+GetParam("%BottomY%", "%Text%", "1");
+SetVariable("%BottomY2%", "%BottomY%");
+Is("%TopX%", ">=", "%BottomX%", "%Cancel%"); 
+Is("%TopY%", ">=", "%BottomY%", "%Cancel%"); 
+Print("单元格输入错误！", "%Cancel%");
+Cancel("%Cancel%");
+
+GetIniKey("%ShorePieces%","General","ShorePieces", "1", "9");
+Trim("%ShorePieces%");
+
+Add("%BottomX%","1");
+:LoopX:
+Substract("%BottomX%","1");
+SetVariable("%BottomY%",  "%BottomY2%");
+Add("%BottomY%","1");
+:LoopY:
+Substract("%BottomY%","1");
+IsCoordInMap("%validCell%", "%BottomY%", "%BottomX%");
+GetCellInfo("%RampType%", "%BottomY%", "%BottomX%", "5", "%validCell%");
+Is("%RampType%", "=", "0", "%IsFlatten%", "%validCell%");
+GetCellInfo("%LandType%", "%BottomY%", "%BottomX%", "4", "%validCell%");
+Is("%LandType%", "=", "0", "%IsGround0%", "%validCell%");
+Is("%LandType%", "=", "1", "%IsGround1%", "%validCell%");
+Is("%LandType%", "=", "2", "%IsGround2%", "%validCell%");
+Is("%LandType%", "=", "3", "%IsGround3%", "%validCell%");
+Is("%LandType%", "=", "4", "%IsGround4%", "%validCell%");
+Is("%LandType%", "=", "5", "%IsGround5%", "%validCell%");
+Is("%LandType%", "=", "6", "%IsGround6%", "%validCell%");
+Is("%LandType%", "=", "11", "%IsGround11%", "%validCell%");
+Is("%LandType%", "=", "12", "%IsGround12%", "%validCell%");
+Is("%LandType%", "=", "13", "%IsGround13%", "%validCell%");
+Is("%LandType%", "=", "14", "%IsGround14%", "%validCell%");
+Or("%IsGround%", "%IsGround0%", "%IsGround1%", "%IsGround2%", "%IsGround3%", "%IsGround4%", "%IsGround5%", "%IsGround6%", "%IsGround10%", "%IsGround11%", "%IsGround12%", "%IsGround13%", "%IsGround14%");
+GetCellInfo("%TileSet%", "%BottomY%", "%BottomX%", "7", "%validCell%");
+Is("%ShorePieces%", "=", "%TileSet%", "%IsBeach%");
+Not("%IsBeach%");
+And("%Execute%", "%validCell%", "%IsFlatten%", "%IsGround%", "%IsBeach%");
+PlaceTileAt("%BottomY%", "%BottomX%", "0", "0", "-1", "%Execute%");
+Is("%TopY%", "<", "%BottomY%", "%ContinueLoopY%"); 
+JumpTo("LoopY", "%ContinueLoopY%");
+Is("%TopX%", "<", "%BottomX%", "%ContinueLoopX%"); 
+JumpTo("LoopX", "%ContinueLoopX%");
+
+

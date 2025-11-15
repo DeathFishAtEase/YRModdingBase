@@ -1,0 +1,55 @@
+// FinalAlert2:YR Script file
+// Name: FlyingZ Infinate Cash Script
+// Written By: James Zais aka FlyingZ
+
+
+AskContinue("FlyingZ 无限资金脚本");
+
+SetSafeMode("FALSE","需要此权限以编辑地图");
+Is("%SafeMode%","!=","0","%NoSet%");
+Message("此脚本必须要禁用安全模式才能运行！", "FlyingZ", "%NoSet%");
+Cancel("%NoSet%");
+
+SetIniKey("GACNST","ProduceCashAmount","80");
+SetIniKey("GACNST","ProduceCashDelay","40");
+
+SetIniKey("NACNST","ProduceCashAmount","80");
+SetIniKey("NACNST","ProduceCashDelay","40");
+
+SetIniKey("YACNST","ProduceCashAmount","80");
+SetIniKey("YACNST","ProduceCashDelay","40");
+
+
+SetIniKey("HARV","TechLevel","11");
+SetIniKey("HARV","CrateGoodie","no");
+
+SetIniKey("CMIN","TechLevel","11");
+SetIniKey("CMIN","CrateGoodie","no");
+
+SetIniKey("SMIN","TechLevel","11");
+SetIniKey("SMIN","CrateGoodie","no");
+
+SetIniKey("GAREFN","TechLevel","11");
+SetIniKey("NAREFN","TechLevel","11");
+SetIniKey("GAOREP","TechLevel","11");
+SetIniKey("YAREFN","TechLevel","11");
+
+
+SetIniKey("NAWEAP","Prerequisite","NAHAND,NACNST");
+SetIniKey("GAWEAP","Prerequisite","GAPILE,GACNST");
+SetIniKey("NAYARD","Prerequisite","POWER,NACNST");
+SetIniKey("GAYARD","Prerequisite","POWER,GACNST");
+SetIniKey("NARADR","Prerequisite","NAHAND,NACNST");
+SetIniKey("GAAIRC","Prerequisite","GAPILE,GACNST");
+SetIniKey("AMRADR","Prerequisite","GAPILE,GACNST");
+SetIniKey("NAINDP","Prerequisite","NATECH,NACNST");
+SetIniKey("NAPSIS","Prerequisite","YABRCK,YACNST");
+SetIniKey("YAYARD","Prerequisite","YABRCK,YACNST");
+SetIniKey("YAWEAP","Prerequisite","YABRCK,YACNST");
+
+SetIniKey("Authorfscript","0","This map has used FlyingZ Infinate Cash fscript");
+SetIniKey("Authorfscript","1","Created by James Zais aka FlyingZ");
+
+Message("无限资金脚本运行成功 ", "FlyingZ");
+
+

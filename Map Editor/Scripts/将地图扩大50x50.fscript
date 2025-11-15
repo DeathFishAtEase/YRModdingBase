@@ -1,0 +1,22 @@
+// FinalAlert2:YR Script file
+// Name: Enlarge map by 50x50
+// Written By: Matthias Wagner
+// Last Change: August 21, 2001
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+Is("%IsoSize%", ">", "411", "TooLarge");
+
+Print("脚本无法执行，因为地图已经过大","TooLarge");
+Cancel("TooLarge");
+
+SetVariable("NW", "%Width%");
+SetVariable("NH", "%Height%");
+SetVariable("X", "25");
+SetVariable("Y", "25");
+
+Add("NW", "50");
+Add("NH", "50");
+
+AskContinue("脚本将会将地图从 %Width%x%Height% 拓展为 NWxNH. 继续？");
+
+Resize("X","Y","NW","NH");

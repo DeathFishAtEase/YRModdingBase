@@ -1,0 +1,204 @@
+// FinalAlert2:YR Script file
+// Name: Hide all cliffs
+// Written By: Handama
+// Last Change: February 1, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+
+GetTheater("%MapTheater%");
+
+Is("%MapTheater%", "=", "0", "%TEM%");
+Is("%MapTheater%", "=", "1", "%SNO%");
+Is("%MapTheater%", "=", "2", "%URB%");
+Is("%MapTheater%", "=", "3", "%UBN%");
+Is("%MapTheater%", "=", "4", "%LUN%");
+Is("%MapTheater%", "=", "5", "%DES%");
+
+JumpTo("TEM" , "%TEM%");
+JumpTo("SNO" , "%SNO%");
+JumpTo("URB" , "%URB%");
+JumpTo("UBN" , "%UBN%");
+JumpTo("LUN" , "%LUN%");
+JumpTo("DES" , "%DES%");
+JumpTo("END");
+
+:TEM:
+HideTileSet("10", "0");
+HideTileSet("15", "0");
+HideTileSet("19", "0");
+HideTileSet("25", "0");
+HideTileSet("30", "0");
+HideTileSet("49", "0");
+HideTileSet("50", "0");
+HideTileSet("51", "0");
+HideTileSet("53", "0");
+HideTileSet("54", "0");
+HideTileSet("56", "0");
+HideTileSet("57", "0");
+HideTileSet("73", "0");
+HideTileSet("80", "0");
+HideTileSet("87", "0");
+HideTileSet("92", "0");
+HideTileSet("95", "0");
+HideTileSet("99", "0");
+HideTileSet("103", "0");
+HideTileSet("104", "0");
+JumpTo("END");
+
+:SNO:
+HideTileSet("10", "0");
+HideTileSet("15", "0");
+HideTileSet("19", "0");
+HideTileSet("25", "0");
+HideTileSet("30", "0");
+HideTileSet("35", "0");
+HideTileSet("36", "0");
+HideTileSet("37", "0");
+HideTileSet("47", "0");
+HideTileSet("48", "0");
+HideTileSet("61", "0");
+HideTileSet("67", "0");
+HideTileSet("73", "0");
+HideTileSet("75", "0");
+HideTileSet("77", "0");
+HideTileSet("79", "0");
+HideTileSet("82", "0");
+HideTileSet("83", "0");
+HideTileSet("85", "0");
+HideTileSet("93", "0");
+HideTileSet("100", "0");
+HideTileSet("101", "0");
+HideTileSet("102", "0");
+HideTileSet("106", "0");
+HideTileSet("107", "0");
+HideTileSet("108", "0");
+HideTileSet("109", "0");
+HideTileSet("110", "0");
+HideTileSet("111", "0");
+HideTileSet("112", "0");
+HideTileSet("113", "0");
+HideTileSet("114", "0");
+HideTileSet("115", "0");
+HideTileSet("116", "0");
+HideTileSet("117", "0");
+HideTileSet("118", "0");
+HideTileSet("119", "0");
+HideTileSet("124", "0");
+HideTileSet("137", "0");
+HideTileSet("139", "0");
+HideTileSet("140", "0");
+HideTileSet("141", "0");
+HideTileSet("149", "0");
+HideTileSet("150", "0");
+HideTileSet("163", "0");
+HideTileSet("164", "0");
+HideTileSet("165", "0");
+HideTileSet("173", "0");
+JumpTo("END");
+
+:URB:
+HideTileSet("10", "0");
+HideTileSet("15", "0");
+HideTileSet("19", "0");
+HideTileSet("25", "0");
+HideTileSet("53", "0");
+HideTileSet("54", "0");
+HideTileSet("73", "0");
+HideTileSet("76", "0");
+HideTileSet("78", "0");
+HideTileSet("83", "0");
+HideTileSet("85", "0");
+HideTileSet("101", "0");
+HideTileSet("107", "0");
+HideTileSet("116", "0");
+HideTileSet("120", "0");
+HideTileSet("122", "0");
+HideTileSet("124", "0");
+HideTileSet("126", "0");
+HideTileSet("130", "0");
+HideTileSet("131", "0");
+HideTileSet("144", "0");
+HideTileSet("146", "0");
+HideTileSet("148", "0");
+HideTileSet("152", "0");
+JumpTo("END");
+
+:UBN:
+HideTileSet("10", "0");
+HideTileSet("15", "0");
+HideTileSet("19", "0");
+HideTileSet("25", "0");
+HideTileSet("30", "0");
+HideTileSet("49", "0");
+HideTileSet("54", "0");
+HideTileSet("56", "0");
+HideTileSet("76", "0");
+HideTileSet("78", "0");
+HideTileSet("83", "0");
+HideTileSet("85", "0");
+HideTileSet("101", "0");
+HideTileSet("107", "0");
+HideTileSet("110", "0");
+HideTileSet("112", "0");
+HideTileSet("115", "0");
+HideTileSet("121", "0");
+HideTileSet("146", "0");
+HideTileSet("148", "0");
+HideTileSet("152", "0");
+HideTileSet("153", "0");
+HideTileSet("155", "0");
+HideTileSet("158", "0");
+HideTileSet("163", "0");
+HideTileSet("168", "0");
+HideTileSet("172", "0");
+HideTileSet("174", "0");
+HideTileSet("176", "0");
+HideTileSet("177", "0");
+HideTileSet("179", "0");
+HideTileSet("181", "0");
+HideTileSet("186", "0");
+HideTileSet("197", "0");
+HideTileSet("199", "0");
+HideTileSet("201", "0");
+HideTileSet("204", "0");
+HideTileSet("205", "0");
+HideTileSet("206", "0");
+JumpTo("END");
+
+:LUN:
+HideTileSet("85", "0");
+HideTileSet("98", "0");
+HideTileSet("100", "0");
+HideTileSet("101", "0");
+HideTileSet("102", "0");
+HideTileSet("108", "0");
+HideTileSet("113", "0");
+JumpTo("END");
+
+:DES:
+HideTileSet("10", "0");
+HideTileSet("19", "0");
+HideTileSet("25", "0");
+HideTileSet("53", "0");
+HideTileSet("54", "0");
+HideTileSet("56", "0");
+HideTileSet("73", "0");
+HideTileSet("80", "0");
+HideTileSet("82", "0");
+HideTileSet("83", "0");
+HideTileSet("84", "0");
+HideTileSet("85", "0");
+HideTileSet("86", "0");
+HideTileSet("87", "0");
+HideTileSet("103", "0");
+HideTileSet("109", "0");
+HideTileSet("113", "0");
+HideTileSet("114", "0");
+HideTileSet("119", "0");
+HideTileSet("120", "0");
+JumpTo("END");
+
+:END:
+
+

@@ -1,0 +1,82 @@
+// FinalAlert2:YR Script file
+// Name: Replace Whole Map with Water
+// Written By: Handama
+// Last Change: March 9, 2025
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+RequireFA2SPHE();
+UInputGetString("%INPUT%", "请输入要隐藏的科技类型。格式是由0或1组成的四位数字，四位分别代表建筑、车辆、步兵、飞行器。例如，1111表示隐藏所有科技类型，0101表示只隐藏车辆与飞行器。");
+GetChar("%BUILDING%", "%INPUT%", "0");
+GetChar("%VEHICLE%", "%INPUT%", "1");
+GetChar("%INFANTRY%", "%INPUT%", "2");
+GetChar("%AIRCRAFT%", "%INPUT%", "3");
+Or("%INVALID%", "%BUILDING%", "%VEHICLE%", "%INFANTRY%", "%AIRCRAFT%");
+Not("%INVALID%");
+JumpTo("END", "%INVALID%");
+
+Message("FA2会提示超出循环限制，请点击是。对于较大的地图，本脚本可能会花费数分钟时间，并且导致程序无响应，请不要关闭程序。", "警告");
+
+SetVariable("%X%","%IsoSize%");
+Add("%X%","1");
+:LoopX:
+Substract("%X%","1");
+SetVariable("%Y%","%IsoSize%");
+Add("%Y%","1");
+:LoopY:
+Substract("%Y%","1");
+
+IsCoordInMap("%invalidCell%", "%Y%", "%X%");
+Not("%invalidCell%");
+JumpTo("LoopEnd", "%invalidCell%");
+
+JumpTo("BUILDING", "%BUILDING%");
+JumpTo("VEHICLE", "%VEHICLE%");
+JumpTo("INFANTRY", "%INFANTRY%");
+JumpTo("AIRCRAFT", "%AIRCRAFT%");
+JumpTo("LoopEnd");
+:BUILDING:
+GetCellInfo("%HasObject%", "%Y%", "%X%", "12");
+Is("%HasObject%", "!=", "-1", "%HIDE%");
+HideTileAt("%Y%", "%X%", "0", "%HIDE%");
+
+JumpTo("VEHICLE", "%VEHICLE%");
+JumpTo("INFANTRY", "%INFANTRY%");
+JumpTo("AIRCRAFT", "%AIRCRAFT%");
+JumpTo("LoopEnd");
+:VEHICLE:
+GetCellInfo("%HasObject%", "%Y%", "%X%", "13");
+Is("%HasObject%", "!=", "-1", "%HIDE%");
+HideTileAt("%Y%", "%X%", "0", "%HIDE%");
+
+JumpTo("INFANTRY", "%INFANTRY%");
+JumpTo("AIRCRAFT", "%AIRCRAFT%");
+JumpTo("LoopEnd");
+:INFANTRY:
+GetCellInfo("%HasObject%", "%Y%", "%X%", "8");
+Is("%HasObject%", "!=", "-1", "%HIDE%");
+HideTileAt("%Y%", "%X%", "0", "%HIDE%");
+JumpTo("INFANTRYEND", "%HIDE%");
+
+GetCellInfo("%HasObject%", "%Y%", "%X%", "9");
+Is("%HasObject%", "!=", "-1", "%HIDE%");
+HideTileAt("%Y%", "%X%", "0", "%HIDE%");
+JumpTo("INFANTRYEND", "%HIDE%");
+
+GetCellInfo("%HasObject%", "%Y%", "%X%", "10");
+Is("%HasObject%", "!=", "-1", "%HIDE%");
+HideTileAt("%Y%", "%X%", "0", "%HIDE%");
+
+:INFANTRYEND:
+
+JumpTo("AIRCRAFT", "%AIRCRAFT%");
+JumpTo("LoopEnd");
+:AIRCRAFT:
+GetCellInfo("%HasObject%", "%Y%", "%X%", "11");
+Is("%HasObject%", "!=", "-1", "%HIDE%");
+HideTileAt("%Y%", "%X%", "0", "%HIDE%");
+
+:LoopEnd:
+JumpTo("LoopY", "%Y%");
+JumpTo("LoopX", "%X%");
+
+:END:
